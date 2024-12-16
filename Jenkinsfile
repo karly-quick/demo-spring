@@ -1,18 +1,36 @@
 pipeline {
-  agent any
-
-  environment {
-      NODE_TLS_REJECT_UNAUTHORIZED = 0
-  }
-
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          docker.build("dylansnyk/demo-spring:latest")
+    agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
         }
-      }
     }
+}
+
+
+
+
+
+//   pipeline {
+//     agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
+//     stages {
+//         stage('build') {
+//             steps {
+//                 sh 'mvn --version'
+//             }
+//         }
+//     }
+// }
+  // stages {
+  //   stage('Build') {
+  //     steps {
+  //       script {
+  //         docker.build("dylansnyk/demo-spring:latest")
+  //       }
+  //     }
+  //   }
     // stage('Install and Run Snyk') {
     //   steps {
     //     withCredentials([string(credentialsId: 'snyk-insights-api-token', variable: 'SNYK_TOKEN')]) {
@@ -32,5 +50,5 @@ pipeline {
     //     }
     //   }
     // }
-  }
-}
+//   }
+// }
