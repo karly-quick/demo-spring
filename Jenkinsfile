@@ -18,7 +18,7 @@ pipeline {
           snykInstallation: 'snyk@latest',
           snykTokenId: '277c4f33-ed28-4541-b9b3-429a8a2cdcff',
           // place other optional parameters here, for example:
-          additionalArguments: '--all-projects --detection-depth=<DEPTH>'
+         // additionalArguments: '--all-projects --detection-depth=<DEPTH>'
         )
       }
     }
